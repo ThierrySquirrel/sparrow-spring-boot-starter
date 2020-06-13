@@ -43,7 +43,7 @@ Support Function:
         <dependency>
             <artifactId>sparrow-spring-boot-starter</artifactId>
             <groupId>com.github.thierrysquirrel</groupId>
-            <version>1.0.0-RELEASE</version>
+            <version>1.0.1-RELEASE</version>
         </dependency>
 ``` 
 
