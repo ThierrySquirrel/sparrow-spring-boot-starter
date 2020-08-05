@@ -19,7 +19,6 @@ import com.github.thierrysquirrel.sparrow.autoconfigure.SparrowProperties;
 import com.github.thierrysquirrel.sparrow.init.core.factory.execution.SparrowConsumerInitFactoryExecution;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -47,7 +46,7 @@ public class SparrowConsumerInit implements ApplicationContextAware {
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 }
