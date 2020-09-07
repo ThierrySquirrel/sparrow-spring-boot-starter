@@ -16,7 +16,6 @@
 package com.github.thierrysquirrel.sparrow.aspect;
 
 import com.github.thierrysquirrel.sparrow.annotation.SparrowAsyncProducer;
-import com.github.thierrysquirrel.sparrow.annotation.SparrowProducer;
 import com.github.thierrysquirrel.sparrow.aspect.core.factory.execution.SparrowAspectFactoryExecution;
 import com.github.thierrysquirrel.sparrow.autoconfigure.SparrowProperties;
 import com.github.thierrysquirrel.sparrow.core.utils.AspectUtils;
@@ -48,21 +47,9 @@ public class SparrowAspect {
     @Resource
     private SparrowProperties sparrowProperties;
 
-    @Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.SparrowProducer)")
-    public void sparrowProducerPointcut() {
-        log.debug ("Start SparrowProducerPointcut");
-    }
-
     @Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.SparrowAsyncProducer)")
     public void sparrowAsyncProducer() {
         log.debug ("Start SparrowAsyncProducer");
-    }
-
-    @Around("sparrowProducerPointcut()")
-    public Object sparrowProducerAround(ProceedingJoinPoint point) throws SparrowException {
-        return SparrowAspectFactoryExecution.sparrowProducer (administrationTemplate,
-                AspectUtils.getAnnotation (point, SparrowProducer.class),
-                point);
     }
 
     @Around("sparrowAsyncProducer()")

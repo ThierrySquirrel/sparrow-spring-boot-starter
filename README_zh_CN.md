@@ -9,7 +9,6 @@ Sparrow Spring Book Edition
 - [x] 删除主题
 - [x] 得到主题
 - [x] 得到所有主题
-- [x] 发送消息
 - [x] 发送异步消息
 - [x] 消费消息
 
@@ -24,10 +23,6 @@ Sparrow Spring Book Edition
  
 # 得到所有主题:
  得到所有创建过的主题
- 
-# 发送消息:
- 同步发送消息,方法运行成功,消息一定发送成功
- 方法运行失败,消息不发送  
 
 # 发送异步消息:
  异步发送消息,方法运行成功,保障[SparrowServer](https://github.com/ThierrySquirrel/sparrow-server-spring-boot-starter) 运行正常,消息一定发送成功  
@@ -36,7 +31,6 @@ Sparrow Spring Book Edition
 # 消费消息:
  用于消费消息  
 
-
 ## Quick Start
 
 ```xml
@@ -44,7 +38,7 @@ Sparrow Spring Book Edition
         <dependency>
             <artifactId>sparrow-spring-boot-starter</artifactId>
             <groupId>com.github.thierrysquirrel</groupId>
-            <version>1.0.3-RELEASE</version>
+            <version>2.0.0-RELEASE</version>
         </dependency>
 ``` 
 
@@ -100,13 +94,13 @@ public class CreateTopic {
 }
  ``` 
 
-# 发送消息,发送异步消息
+# 发送异步消息
 
  ```java
 @RestController
 public class SendMessage {
 
-    @GetMapping("/sendMessage")
+    @GetMapping("/sendAsyncMessageHello")
     @SparrowAsyncProducer("hello")
     public User sendMessage() {
         User user = new User ();
@@ -115,7 +109,7 @@ public class SendMessage {
         return user;
     }
 
-    @GetMapping("/sendAsyncMessage")
+    @GetMapping("/sendAsyncMessageWorld")
     @SparrowAsyncProducer("world")
     public User sendAsyncMessage() {
         User user = new User ();

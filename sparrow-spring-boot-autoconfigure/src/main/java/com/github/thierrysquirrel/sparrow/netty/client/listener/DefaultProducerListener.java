@@ -32,7 +32,7 @@ public class DefaultProducerListener implements ProducerListener {
 
     @Override
     public void response(boolean isSuccess, SparrowMessage sparrowMessage) {
-        log.info ("Producer Response {}", isSuccess);
+        log.debug ("Producer Response {}", isSuccess);
         log.debug ("Producer Response {}" + sparrowMessage.toString ());
     }
 }

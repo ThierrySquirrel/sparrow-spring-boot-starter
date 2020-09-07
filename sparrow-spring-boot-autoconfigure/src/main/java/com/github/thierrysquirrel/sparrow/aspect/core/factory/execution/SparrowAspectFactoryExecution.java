@@ -16,15 +16,13 @@
 package com.github.thierrysquirrel.sparrow.aspect.core.factory.execution;
 
 import com.github.thierrysquirrel.sparrow.annotation.SparrowAsyncProducer;
-import com.github.thierrysquirrel.sparrow.annotation.SparrowProducer;
 import com.github.thierrysquirrel.sparrow.aspect.core.factory.SparrowAspectFactory;
 import com.github.thierrysquirrel.sparrow.error.SparrowException;
-import com.github.thierrysquirrel.sparrow.template.AdministrationTemplate;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
  * ClassName: SparrowAspectFactoryExecution
- * Description: 
+ * Description:
  * date: 2020/6/11 8:50
  *
  * @author ThierrySquirrel
@@ -33,17 +31,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 public class SparrowAspectFactoryExecution {
     private SparrowAspectFactoryExecution() {
     }
-    public static Object sparrowProducer(AdministrationTemplate administrationTemplate, SparrowProducer sparrowProducer, ProceedingJoinPoint point) throws SparrowException {
-        String topic = sparrowProducer.value ();
-        Object proceed;
-        try {
-            proceed = point.proceed ();
-            SparrowAspectFactory.sparrowProducer (administrationTemplate, topic, proceed);
-        } catch (Throwable e) {
-            throw new SparrowException (e);
-        }
-        return proceed;
-    }
+
     public static Object sparrowAsyncProducerAround(SparrowAsyncProducer sparrowAsyncProducer, String sparrowServerUrl, ProceedingJoinPoint point) throws SparrowException {
         String topic = sparrowAsyncProducer.value ();
         Object proceed;

@@ -16,11 +16,9 @@
 package com.github.thierrysquirrel.sparrow.aspect.core.factory;
 
 import com.github.thierrysquirrel.sparrow.core.constant.ThreadPoolFactoryConstant;
-import com.github.thierrysquirrel.sparrow.error.SparrowException;
 import com.github.thierrysquirrel.sparrow.netty.client.thread.execution.AsyncProducerThreadExecution;
 import com.github.thierrysquirrel.sparrow.server.common.netty.core.factory.execution.ThreadPoolFactoryExecution;
 import com.github.thierrysquirrel.sparrow.server.common.netty.core.utils.SerializerUtils;
-import com.github.thierrysquirrel.sparrow.template.AdministrationTemplate;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ThreadPoolExecutor;
@@ -36,15 +34,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Slf4j
 public class SparrowAspectFactory {
     private SparrowAspectFactory() {
-    }
-
-
-    public static void sparrowProducer(AdministrationTemplate administrationTemplate, String topic, Object message) throws SparrowException {
-        try {
-            administrationTemplate.postMessage (topic, message);
-        } catch (Exception e) {
-            throw new SparrowException (e);
-        }
     }
 
     public static void sparrowAsyncProducerAround(String sparrowServerUrl, String topic, Object message) {

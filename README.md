@@ -9,7 +9,6 @@ Support Function:
 - [x] DeleteTopic
 - [x] GetTopic
 - [x] GetAllTopic
-- [x] SendMessage
 - [x] SendAsyncMessage
 - [x] ConsumerMessage
 
@@ -24,10 +23,6 @@ Support Function:
      
 # GetAllTopic:
  Get All Created Topic  
- 
-# SendMessage:
- Send The Message Synchronously. The Method Runs Successfully. The message must be sent successfully  
- Method Failed To Run, Message Not Sent.  
 
 # SendAsyncMessage:
  Send Message Asynchronously, Method Runs Successfully,Ensure The Normal Operation Of [SparrowServer](https://github.com/ThierrySquirrel/sparrow-server-spring-boot-starter) And The Message Must Be Sent Successfully                                                                                                                                                  
@@ -43,7 +38,7 @@ Support Function:
         <dependency>
             <artifactId>sparrow-spring-boot-starter</artifactId>
             <groupId>com.github.thierrysquirrel</groupId>
-            <version>1.0.3-RELEASE</version>
+            <version>2.0.0-RELEASE</version>
         </dependency>
 ``` 
 
@@ -99,13 +94,13 @@ public class CreateTopic {
 }
  ``` 
 
-# SendMessage,SendAsyncMessage
+# SendAsyncMessage
 
  ```java
 @RestController
 public class SendMessage {
 
-    @GetMapping("/sendMessage")
+    @GetMapping("/sendAsyncMessageHello")
     @SparrowAsyncProducer("hello")
     public User sendMessage() {
         User user = new User ();
@@ -114,7 +109,7 @@ public class SendMessage {
         return user;
     }
 
-    @GetMapping("/sendAsyncMessage")
+    @GetMapping("/sendAsyncMessageWorld")
     @SparrowAsyncProducer("world")
     public User sendAsyncMessage() {
         User user = new User ();
