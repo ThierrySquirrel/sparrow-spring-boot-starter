@@ -15,12 +15,11 @@
  */
 package com.github.thierrysquirrel.sparrow.aspect;
 
-import com.github.thierrysquirrel.sparrow.annotation.SparrowAsyncProducer;
-import com.github.thierrysquirrel.sparrow.aspect.core.factory.execution.SparrowAspectFactoryExecution;
+import com.github.thierrysquirrel.sparrow.annotation.Producer;
+import com.github.thierrysquirrel.sparrow.aspect.core.execution.SparrowAspectExecution;
+import com.github.thierrysquirrel.sparrow.aspect.utils.SparrowAspectUtils;
 import com.github.thierrysquirrel.sparrow.autoconfigure.SparrowProperties;
-import com.github.thierrysquirrel.sparrow.core.utils.AspectUtils;
-import com.github.thierrysquirrel.sparrow.error.SparrowException;
-import com.github.thierrysquirrel.sparrow.template.AdministrationTemplate;
+import com.github.thierrysquirrel.sparrow.core.exception.SparrowException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -33,7 +32,7 @@ import javax.annotation.Resource;
 /**
  * ClassName: SparrowAspect
  * Description:
- * date: 2020/6/11 8:20
+ * date: 2020/12/8 5:38
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
@@ -42,20 +41,17 @@ import javax.annotation.Resource;
 @Data
 @Slf4j
 public class SparrowAspect {
-    @Resource
-    private AdministrationTemplate administrationTemplate;
-    @Resource
-    private SparrowProperties sparrowProperties;
+	@Resource
+	private SparrowProperties sparrowProperties;
 
-    @Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.SparrowAsyncProducer)")
-    public void sparrowAsyncProducer() {
-        log.debug ("Start SparrowAsyncProducer");
-    }
+	@Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.Producer)")
+	public void producerPointcut() {
+		log.debug("Start Producer");
+	}
 
-    @Around("sparrowAsyncProducer()")
-    public Object sparrowAsyncProducerAround(ProceedingJoinPoint point) throws SparrowException {
-        return SparrowAspectFactoryExecution.sparrowAsyncProducerAround (AspectUtils.getAnnotation (point, SparrowAsyncProducer.class),
-                sparrowProperties.getSparrowServerUrl (),
-                point);
-    }
+	@Around("producerPointcut()")
+	public Object sparrowProducerAround(ProceedingJoinPoint point) throws SparrowException {
+		return SparrowAspectExecution.sendMessage(point,
+				SparrowAspectUtils.getAnnotation(point, Producer.class), sparrowProperties.getSparrowServerUrl());
+	}
 }

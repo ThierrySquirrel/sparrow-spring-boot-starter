@@ -13,22 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.thierrysquirrel.sparrow.autoconfigure;
-
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+package com.github.thierrysquirrel.sparrow.core.exception;
 
 /**
- * ClassName: SparrowProperties
+ * ClassName: SparrowException
  * Description:
- * date: 2020/12/8 5:36
+ * date: 2020/12/8 6:01
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
  */
-@Data
-@ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
-public class SparrowProperties {
-	public static final String SPARROW_PREFIX = "sparrow";
-	private String sparrowServerUrl;
+public class SparrowException extends Exception {
+	public SparrowException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
 }

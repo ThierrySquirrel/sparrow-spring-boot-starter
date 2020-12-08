@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.thierrysquirrel.sparrow.autoconfigure;
+package com.github.thierrysquirrel.sparrow.core.constant;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import com.github.thierrysquirrel.sparrow.core.builder.ThreadPoolExecutorBuilder;
+
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * ClassName: SparrowProperties
+ * ClassName: ThreadPoolExecutorConstant
  * Description:
- * date: 2020/12/8 5:36
+ * date: 2020/12/8 5:43
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
  */
-@Data
-@ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
-public class SparrowProperties {
-	public static final String SPARROW_PREFIX = "sparrow";
-	private String sparrowServerUrl;
+public final class ThreadPoolExecutorConstant {
+	public static final ThreadPoolExecutor SPARROW_PRODUCER= ThreadPoolExecutorBuilder.builderSparrowProducerThreadPoolExecutor();
+
+	private ThreadPoolExecutorConstant() {
+	}
 }

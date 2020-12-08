@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.thierrysquirrel.sparrow.autoconfigure;
+package com.github.thierrysquirrel.sparrow.annotation;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import java.lang.annotation.*;
 
 /**
- * ClassName: SparrowProperties
+ * ClassName: Producer
  * Description:
- * date: 2020/12/8 5:36
+ * date: 2020/12/8 5:34
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
  */
-@Data
-@ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
-public class SparrowProperties {
-	public static final String SPARROW_PREFIX = "sparrow";
-	private String sparrowServerUrl;
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+public @interface Producer {
+	String value();
 }

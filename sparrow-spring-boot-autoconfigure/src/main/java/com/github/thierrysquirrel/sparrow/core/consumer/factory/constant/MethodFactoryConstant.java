@@ -13,22 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.thierrysquirrel.sparrow.autoconfigure;
-
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+package com.github.thierrysquirrel.sparrow.core.consumer.factory.constant;
 
 /**
- * ClassName: SparrowProperties
+ * ClassName: MethodFactoryConstant
  * Description:
- * date: 2020/12/8 5:36
+ * date: 2020/12/8 6:26
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
  */
-@Data
-@ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
-public class SparrowProperties {
-	public static final String SPARROW_PREFIX = "sparrow";
-	private String sparrowServerUrl;
+public final class MethodFactoryConstant {
+	public static final int METHOD_PARAMETER_TYPE = 0;
+
+	private MethodFactoryConstant() {
+	}
+
 }

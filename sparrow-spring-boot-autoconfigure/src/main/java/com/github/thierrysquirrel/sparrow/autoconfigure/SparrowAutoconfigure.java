@@ -16,8 +16,7 @@
 package com.github.thierrysquirrel.sparrow.autoconfigure;
 
 import com.github.thierrysquirrel.sparrow.aspect.SparrowAspect;
-import com.github.thierrysquirrel.sparrow.init.SparrowConsumerInit;
-import com.github.thierrysquirrel.sparrow.template.AdministrationTemplate;
+import com.github.thierrysquirrel.sparrow.init.ConsumerInit;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +25,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * ClassName: SparrowAutoconfigure
  * Description:
- * date: 2020/6/10 16:29
+ * date: 2020/12/8 5:36
  *
  * @author ThierrySquirrel
  * @since JDK 1.8
@@ -34,22 +33,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(SparrowProperties.class)
 public class SparrowAutoconfigure {
+	@Bean
+	@ConditionalOnMissingBean(SparrowAspect.class)
+	public SparrowAspect sparrowAspect() {
+		return new SparrowAspect();
+	}
 
-    @Bean
-    @ConditionalOnMissingBean(AdministrationTemplate.class)
-    public AdministrationTemplate administrationTemplate() {
-        return new AdministrationTemplate ();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(SparrowConsumerInit.class)
-    public SparrowConsumerInit sparrowConsumerInit() {
-        return new SparrowConsumerInit ();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(SparrowAspect.class)
-    public SparrowAspect sparrowAspect() {
-        return new SparrowAspect ();
-    }
+	@Bean
+	@ConditionalOnMissingBean(ConsumerInit.class)
+	public ConsumerInit consumerInit() {
+		return new ConsumerInit();
+	}
 }
