@@ -7,7 +7,7 @@
     <groupId>com.github.thierrysquirrel</groupId>
     <artifactId>sparrow-spring-boot</artifactId>
     <packaging>pom</packaging>
-    <version>2.2.0.9-RELEASE</version>
+    <version>2.2.1.0-RELEASE</version>
 
     <name>sparrow-spring-boot</name>
     <description>sparrow-spring-boot</description>
@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.0</version>
+        <version>2.6.1</version>
         <relativePath/>
     </parent>
 
@@ -26,8 +26,8 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
-        <sparrow-server-spring-boot-common.version>2.2.0.9-RELEASE</sparrow-server-spring-boot-common.version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <sparrow-server-spring-boot-common.version>2.2.1.0-RELEASE</sparrow-server-spring-boot-common.version>
         <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
     </properties>
