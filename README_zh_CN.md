@@ -95,4 +95,4 @@ public class ConsumerMessage {
 }
  ```
  
- ![AmericanFlag](https://user-images.githubusercontent.com/49895274/184471159-a4867431-2176-4148-8ca4-e637a308c9b2.jpeg)  
+![Russian flag](https://user-images.githubusercontent.com/49895274/190373810-e7589cf2-2951-4f10-a32d-f823dce87885.png)
