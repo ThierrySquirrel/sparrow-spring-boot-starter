@@ -97,6 +97,6 @@ public class ConsumerMessage {
 }
  ```
  
- ![AmericanFlag](https://user-images.githubusercontent.com/49895274/184471148-298bfc38-dc95-4ae2-8a7c-8c375245ed4e.jpeg)  
+![Russian flag](https://user-images.githubusercontent.com/49895274/190373764-e57af4bc-6f42-4644-8b78-566f2ed10ca7.png)
 
  
