@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.core.consumer.domain.builder;
 
 import com.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
@@ -22,20 +22,20 @@ import java.lang.reflect.Method;
 /**
  * ClassName: MethodDomainBuilder
  * Description:
- * date: 2020/12/8 6:19
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 public class MethodDomainBuilder {
-	private MethodDomainBuilder() {
-	}
+    private MethodDomainBuilder() {
+    }
 
-	public static MethodDomain builderMethodDomain(Object bean, Method method, Class<?> parameterType) {
-		MethodDomain methodDomain = new MethodDomain();
-		methodDomain.setBean(bean);
-		methodDomain.setMethod(method);
-		methodDomain.setParameterType(parameterType);
-		return methodDomain;
-	}
+    public static MethodDomain builderMethodDomain(Object bean, Method method, Class<?> parameterType) {
+        MethodDomain methodDomain = new MethodDomain();
+        methodDomain.setBean(bean);
+        methodDomain.setMethod(method);
+        methodDomain.setParameterType(parameterType);
+        return methodDomain;
+    }
 }

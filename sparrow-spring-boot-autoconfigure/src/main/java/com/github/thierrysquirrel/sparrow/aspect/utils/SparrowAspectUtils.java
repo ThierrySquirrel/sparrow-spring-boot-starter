@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.aspect.utils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -24,21 +24,21 @@ import java.lang.reflect.Method;
 /**
  * ClassName: SparrowAspectUtils
  * Description:
- * date: 2020/12/8 5:52
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 public class SparrowAspectUtils {
-	private SparrowAspectUtils() {
-	}
+    private SparrowAspectUtils() {
+    }
 
-	private static Method getMethod(ProceedingJoinPoint proceedingJoinPoint) {
-		MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
-		return signature.getMethod();
-	}
+    private static Method getMethod(ProceedingJoinPoint proceedingJoinPoint) {
+        MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
+        return signature.getMethod();
+    }
 
-	public static <T extends Annotation> T getAnnotation(ProceedingJoinPoint proceedingJoinPoint, Class<T> annotationClass) {
-		return getMethod(proceedingJoinPoint).getAnnotation(annotationClass);
-	}
+    public static <T extends Annotation> T getAnnotation(ProceedingJoinPoint proceedingJoinPoint, Class<T> annotationClass) {
+        return getMethod(proceedingJoinPoint).getAnnotation(annotationClass);
+    }
 }

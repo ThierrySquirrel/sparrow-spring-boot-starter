@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.autoconfigure;
 
 import lombok.Data;
@@ -21,14 +21,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * ClassName: SparrowProperties
  * Description:
- * date: 2020/12/8 5:36
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 @Data
 @ConfigurationProperties(prefix = SparrowProperties.SPARROW_PREFIX)
 public class SparrowProperties {
-	public static final String SPARROW_PREFIX = "sparrow";
-	private String sparrowServerUrl;
+    public static final String SPARROW_PREFIX = "sparrow";
+    private String sparrowServerUrl;
 }

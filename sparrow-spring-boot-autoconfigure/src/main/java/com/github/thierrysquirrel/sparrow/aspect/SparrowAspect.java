@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.aspect;
 
 import com.github.thierrysquirrel.sparrow.annotation.Producer;
@@ -26,32 +26,31 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * ClassName: SparrowAspect
  * Description:
- * date: 2020/12/8 5:38
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 @Aspect
 @Data
 @Slf4j
 public class SparrowAspect {
-	@Resource
-	private SparrowProperties sparrowProperties;
+    @Autowired
+    private SparrowProperties sparrowProperties;
 
-	@Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.Producer)")
-	public void producerPointcut() {
-		log.debug("Start Producer");
-	}
+    @Pointcut("@annotation(com.github.thierrysquirrel.sparrow.annotation.Producer)")
+    public void producerPointcut() {
+        log.debug("Start Producer");
+    }
 
-	@Around("producerPointcut()")
-	public Object sparrowProducerAround(ProceedingJoinPoint point) throws SparrowException {
-		return SparrowAspectExecution.sendMessage(point,
-				SparrowAspectUtils.getAnnotation(point, Producer.class), sparrowProperties.getSparrowServerUrl());
-	}
+    @Around("producerPointcut()")
+    public Object sparrowProducerAround(ProceedingJoinPoint point) throws SparrowException {
+        return SparrowAspectExecution.sendMessage(point,
+                SparrowAspectUtils.getAnnotation(point, Producer.class), sparrowProperties.getSparrowServerUrl());
+    }
 }

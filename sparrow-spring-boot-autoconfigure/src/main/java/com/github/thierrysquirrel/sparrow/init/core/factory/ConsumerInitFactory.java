@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.init.core.factory;
 
 import com.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
@@ -28,22 +28,22 @@ import java.util.List;
 /**
  * ClassName: ConsumerInitFactory
  * Description:
- * date: 2020/12/8 6:37
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 public class ConsumerInitFactory {
-	private ConsumerInitFactory() {
-	}
+    private ConsumerInitFactory() {
+    }
 
-	public static void createSparrowConsumer(List<SparrowConsumer> sparrowConsumerList, String sparrowServerUrl, Object bean, Method method, String topic) {
-		MethodDomain methodDomain = MethodDomainBuilder.builderMethodDomain(bean, method, MethodFactory.getParameterType(method));
-		DefaultConsumerListener defaultConsumerListener = new DefaultConsumerListener(methodDomain);
-		String[] split = sparrowServerUrl.split(SocketAddressConstant.URL_SEPARATOR);
-		for (String url : split) {
-			SparrowConsumer sparrowConsumer = new SparrowConsumer(defaultConsumerListener, url, topic);
-			sparrowConsumerList.add(sparrowConsumer);
-		}
-	}
+    public static void createSparrowConsumer(List<SparrowConsumer> sparrowConsumerList, String sparrowServerUrl, Object bean, Method method, String topic) {
+        MethodDomain methodDomain = MethodDomainBuilder.builderMethodDomain(bean, method, MethodFactory.getParameterType(method));
+        DefaultConsumerListener defaultConsumerListener = new DefaultConsumerListener(methodDomain);
+        String[] split = sparrowServerUrl.split(SocketAddressConstant.URL_SEPARATOR);
+        for (String url : split) {
+            SparrowConsumer sparrowConsumer = new SparrowConsumer(defaultConsumerListener, url, topic);
+            sparrowConsumerList.add(sparrowConsumer);
+        }
+    }
 }

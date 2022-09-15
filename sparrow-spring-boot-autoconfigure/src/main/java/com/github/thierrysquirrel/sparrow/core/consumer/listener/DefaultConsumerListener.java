@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.core.consumer.listener;
 
 import com.github.thierrysquirrel.sparrow.core.consumer.domain.MethodDomain;
@@ -25,27 +25,27 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * ClassName: DefaultConsumerListener
  * Description:
- * date: 2020/12/8 6:30
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 @Slf4j
 public class DefaultConsumerListener implements MessageListener {
-	private final MethodDomain methodDomain;
+    private final MethodDomain methodDomain;
 
-	public DefaultConsumerListener(MethodDomain methodDomain) {
-		this.methodDomain = methodDomain;
-	}
+    public DefaultConsumerListener(MethodDomain methodDomain) {
+        this.methodDomain = methodDomain;
+    }
 
-	@Override
-	public ConsumerState consumer(byte[] message) {
-		try {
-			MethodFactory.messageInvoke(methodDomain, message);
-			return ConsumerState.SUCCESS;
-		} catch (SparrowException e) {
-			log.error("messageInvoke Error", e);
-			return ConsumerState.FAIL;
-		}
-	}
+    @Override
+    public ConsumerState consumer(byte[] message) {
+        try {
+            MethodFactory.messageInvoke(methodDomain, message);
+            return ConsumerState.SUCCESS;
+        } catch (SparrowException e) {
+            log.error("messageInvoke Error", e);
+            return ConsumerState.FAIL;
+        }
+    }
 }

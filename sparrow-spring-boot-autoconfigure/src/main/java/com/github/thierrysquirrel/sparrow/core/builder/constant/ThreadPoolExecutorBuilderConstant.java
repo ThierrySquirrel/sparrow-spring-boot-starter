@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,26 +12,26 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.core.builder.constant;
 
 /**
  * ClassName: ThreadPoolExecutorBuilderConstant
  * Description:
- * date: 2020/12/8 5:43
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 public final class ThreadPoolExecutorBuilderConstant {
-	public static final int KEEP_ALIVE_TIME = 0;
+    public static final int KEEP_ALIVE_TIME = 0;
 
-	public static final String SPARROW_PRODUCER = "SparrowProducer";
-	public static final int SPARROW_PRODUCER_CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
-	public static final int SPARROW_PRODUCER_MAXIMUM_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+    public static final String SPARROW_PRODUCER = "SparrowProducer-%d";
+    public static final int SPARROW_PRODUCER_CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+    public static final int SPARROW_PRODUCER_MAXIMUM_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
 
-	public static final String SPARROW_CONSUMER = "SparrowConsumer";
+    public static final String SPARROW_CONSUMER = "SparrowConsumer";
 
-	private ThreadPoolExecutorBuilderConstant() {
-	}
+    private ThreadPoolExecutorBuilderConstant() {
+    }
 }

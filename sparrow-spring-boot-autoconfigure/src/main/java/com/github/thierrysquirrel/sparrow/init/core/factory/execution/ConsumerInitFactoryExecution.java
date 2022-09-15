@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 the original author or authors.
+ * Copyright 2024/8/9 ThierrySquirrel
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ **/
 package com.github.thierrysquirrel.sparrow.init.core.factory.execution;
 
 import com.github.thierrysquirrel.sparrow.annotation.ConsumerListener;
@@ -30,26 +30,26 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * ClassName: ConsumerInitFactoryExecution
  * Description:
- * date: 2020/12/8 6:46
+ * Date:2024/8/9
  *
  * @author ThierrySquirrel
- * @since JDK 1.8
- */
+ * @since JDK21
+ **/
 public class ConsumerInitFactoryExecution {
-	private ConsumerInitFactoryExecution() {
-	}
+    private ConsumerInitFactoryExecution() {
+    }
 
-	public static void consumerInit(String sparrowServerUrl, ApplicationContext applicationContext) {
-		List<SparrowConsumer> sparrowMessageList = new ArrayList<>();
-		applicationContext.getBeansWithAnnotation(SparrowListener.class).forEach((beanName, bean) ->
-				AnnotatedMethodsUtils.getMethodAndAnnotation(bean, ConsumerListener.class)
-						.forEach((method, consumerListener) -> ConsumerInitFactory.createSparrowConsumer(sparrowMessageList, sparrowServerUrl, bean, method, consumerListener.value())));
-		if (sparrowMessageList.isEmpty()) {
-			return;
-		}
-		ThreadPoolExecutor consumerInitThreadPoolExecutor = ThreadPoolExecutorBuilder.builderSparrowConsumerThreadPoolExecutor(sparrowMessageList.size());
-		for (SparrowConsumer sparrowConsumer : sparrowMessageList) {
-			consumerInitThreadPoolExecutor.execute(sparrowConsumer);
-		}
-	}
+    public static void consumerInit(String sparrowServerUrl, ApplicationContext applicationContext) {
+        List<SparrowConsumer> sparrowMessageList = new ArrayList<>();
+        applicationContext.getBeansWithAnnotation(SparrowListener.class).forEach((beanName, bean) ->
+                AnnotatedMethodsUtils.getMethodAndAnnotation(bean, ConsumerListener.class)
+                        .forEach((method, consumerListener) -> ConsumerInitFactory.createSparrowConsumer(sparrowMessageList, sparrowServerUrl, bean, method, consumerListener.value())));
+        if (sparrowMessageList.isEmpty()) {
+            return;
+        }
+        ThreadPoolExecutor consumerInitThreadPoolExecutor = ThreadPoolExecutorBuilder.builderSparrowConsumerThreadPoolExecutor(sparrowMessageList.size());
+        for (SparrowConsumer sparrowConsumer : sparrowMessageList) {
+            consumerInitThreadPoolExecutor.execute(sparrowConsumer);
+        }
+    }
 }

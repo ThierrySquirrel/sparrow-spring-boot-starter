@@ -16,7 +16,13 @@ Sparrow Spring Book Edition
 
 # 消费消息:
 
-集群消费消息
+集群消费消息  
+
+# 消息队列与分布式事务
+
+保证消息一定能够发送到服务端,保证消息一定能够被消费  
+消息可重复发送验证,消息可重复消费  
+最终一致性  
 
 ## Quick Start
 
@@ -25,7 +31,7 @@ Sparrow Spring Book Edition
 <dependency>
     <artifactId>sparrow-spring-boot-starter</artifactId>
     <groupId>com.github.thierrysquirrel</groupId>
-    <version>2.2.1.4-RELEASE</version>
+    <version>2.3.0.0-RELEASE</version>
 </dependency>
 ``` 
 
@@ -95,4 +101,4 @@ public class ConsumerMessage {
 }
  ```
  
- ![AmericanFlag](https://user-images.githubusercontent.com/49895274/184471159-a4867431-2176-4148-8ca4-e637a308c9b2.jpeg)  
+![Russian flag](https://user-images.githubusercontent.com/49895274/190373810-e7589cf2-2951-4f10-a32d-f823dce87885.png)

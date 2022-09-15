@@ -18,7 +18,13 @@ Method Failed To Run, Message Not Sent.
 
 # ConsumerMessage:
 
-Cluster Consumption Messages
+Cluster Consumption Messages  
+
+# Message queues and distributed transactions
+
+Ensure that the message can be sent to the server and that the message can be consumed  
+Messages can be sent repeatedly for verification, and messages can be consumed repeatedly  
+Final consistency  
 
 ## Quick Start
 
@@ -27,7 +33,7 @@ Cluster Consumption Messages
 <dependency>
     <artifactId>sparrow-spring-boot-starter</artifactId>
     <groupId>com.github.thierrysquirrel</groupId>
-    <version>2.2.1.4-RELEASE</version>
+    <version>2.3.0.0-RELEASE</version>
 </dependency>
 ``` 
 
