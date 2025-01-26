@@ -103,6 +103,4 @@ public class ConsumerMessage {
 }
  ```
  
-![Russian flag](https://user-images.githubusercontent.com/49895274/190373764-e57af4bc-6f42-4644-8b78-566f2ed10ca7.png)
-
  
